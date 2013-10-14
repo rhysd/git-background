@@ -10,13 +10,14 @@ module Git
         if ARGV.empty?
           STDERR.puts help
         else
-          notifier = parse_argv!
-          Process::daemon
-          # Git::Background::Runner.new
+          notifier = parse_notifier!
+          Git::Background::Runner.new(notifier).run
         end
       end
 
-      def parse_argv!
+      private
+
+      def parse_notifier!
         require 'optparse'
 
         notifier = nil
