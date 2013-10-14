@@ -22,9 +22,7 @@ module Git
 
         notifier = nil
         opt = OptionParser.new
-        opt.on('--[no-]notifier[=VAL]') do |n|
-          notifier = n if n.class == String
-        end
+        opt.on('--[no-]notifier[=VAL]') {|n| notifier = n }
         opt.parse!(ARGV)
 
         notifier

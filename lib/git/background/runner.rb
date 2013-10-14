@@ -9,10 +9,13 @@ module Git
     class Runner
 
       def initialize notifier_name
-        if notifier_name
+        case notifier_name
+        when String
           notifier = Notifier::supported_notifier_from_name notifier_name
           raise "#{notifier} is not supported" unless notifier
           Notifier::default_notifier = notifier
+        when false
+          @no_notifier = true
         end
       end
 
@@ -22,9 +25,8 @@ module Git
         Notifier::notify(
           title: "git-background: #{$?.success? ? 'success' : 'failed'}",
           message: result
-        )
+        ) unless @no_notifier
       end
     end
   end
 end
-
