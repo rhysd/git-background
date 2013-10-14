@@ -21,7 +21,7 @@ module Git
 
         notifier = nil
         opt = OptionParser.new
-        opt.on('--[no-]notify[=VAL]') do |n|
+        opt.on('--[no-]notifier[=VAL]') do |n|
           notifier = n if n.class == String
         end
         opt.parse!(ARGV)
@@ -30,7 +30,7 @@ module Git
       end
 
       def help
-          'usage: git background [--[no-]notify=[notifier]] commands...'
+          'usage: git background [--[no-]notifier=[notifier]] commands...'
       end
 
     end
