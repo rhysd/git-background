@@ -1,5 +1,7 @@
 # encoding: utf-8
 
+require 'terminal-notifier'
+
 module Notifier
   module OsxNotification extend self
 
