@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
-$LOAD_PATH << File.join(File.dirname(__FILE__), '..', 'lib')
+require 'optparse'
 
-require 'git/background'
+$LOAD_PATH << File.join(File.dirname(__FILE__), '..', 'lib')
+require 'git/background/cli'
+
+Git::Background::CLI::start
