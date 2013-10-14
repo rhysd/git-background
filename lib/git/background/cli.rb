@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-require 'optparse'
+require 'git/background/runner'
 
 module Git
   module Background
@@ -17,12 +17,15 @@ module Git
       end
 
       def parse_argv!
+        require 'optparse'
+
         notifier = nil
         opt = OptionParser.new
         opt.on('--[no-]notify[=VAL]') do |n|
           notifier = n if n.class == String
         end
         opt.parse!(ARGV)
+
         notifier
       end
 
