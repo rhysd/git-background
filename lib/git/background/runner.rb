@@ -24,7 +24,8 @@ module Git
         result = `git #{ARGV.join ' '}`
         Notifier::notify(
           title: "git-background: #{$?.success? ? 'success' : 'failed'}",
-          message: result
+          message: result,
+          image: '' # why cannot be nilable???
         ) unless @no_notifier
       end
     end
