@@ -12,7 +12,7 @@ module Git
         case notifier_name
         when String
           notifier = Notifier::supported_notifier_from_name notifier_name
-          raise "#{notifier} is not supported" unless notifier
+          raise "#{notifier_name} is not supported" unless notifier
           Notifier::default_notifier = notifier
         when false
           @no_notifier = true
