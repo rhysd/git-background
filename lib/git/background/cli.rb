@@ -20,7 +20,7 @@ module Git
       def parse_notifier!
         require 'optparse'
 
-        notifier = nil
+        notifier = false
         opt = OptionParser.new
         opt.on('--[no-]notifier[=VAL]') {|n| notifier = n }
         opt.parse!(ARGV)
